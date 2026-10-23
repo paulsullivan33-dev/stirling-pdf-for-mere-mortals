@@ -1,0 +1,11 @@
+$ curl -s -o /dev/null -w "%{http_code} -> %{redirect_url}" http://localhost:8080/
+200 -> 
+$ curl -s http://localhost:8080/login | grep -oE "<title>[^<]*</title>"
+<title>Sign In - Stirling PDF</title>
+$ curl -s -F fileInput=@garden-minutes.pdf -F angle=90 http://localhost:8080/api/v1/general/rotate-pdf   (no credentials)
+{"error":"Authentication required"}
+HTTP 401
+
+$ curl -s http://localhost:8080/api/v1/info/status   (no credentials)
+{"version":"3.2.1","status":"UP"}
+HTTP 200

@@ -1,0 +1,109 @@
+Stirling PDF for Mere Mortals — lab notes
+=====================================================
+Every live claim in the guide traces to
+a transcript in
+stirling-pdf-lab/transcripts/ (t00–t15).
+This file is the story around them: what
+the lab was, what it found, and what it
+could not do.
+
+The lab
+    A Linux sandbox with no Docker, no
+    pre-installed Java 25, and a package
+    manager that was unavailable on the
+    day (locked lists) — so the jar route
+    is the verified route, and Tesseract
+    could not be installed. Test PDFs
+    were generated, never downloaded:
+    reportlab wrote three newsletter
+    pages and two minutes pages, Pillow
+    drew the "photo", reportlab wrapped
+    it as a scanned page with no text
+    layer, and the machine's LibreOffice
+    produced the .docx flyer. All
+    specimens are invented (a garden
+    club that does not exist).
+
+Version under test: Stirling PDF 3.2.1
+(released 2026-10-21), jars fetched from
+the project's GitHub release:
+    Stirling-PDF.jar            298,341,792 bytes
+    Stirling-PDF-with-login.jar 385,927,200 bytes
+
+The surprise that shaped chapter 3
+    The jars need Java 25 (class file
+    version 69.0). The lab's Java 21 was
+    refused instantly:
+        UnsupportedClassVersionError ...
+        only recognizes class file
+        versions up to 65.0
+    A Temurin 25 runtime fixed it; the
+    plain jar then started in about 20
+    seconds, the login jar (first run)
+    in about 78.
+
+What the API runs proved (t01–t07, t09)
+    merge     3 pages + 2 pages -> 5, in
+              order, first and last
+              pages checked by content
+    split     3 pages -> a zip of three
+              one-page PDFs, order kept
+    rotate    both pages carry
+              /Rotate = 90 afterwards
+    pdf->text both headlines extracted
+              exactly once each
+    pdf->img  a true PNG, 2480x3507 —
+              A4 at the default 300 dpi
+    img->pdf  one A4 page, image inside
+    docx->pdf worked, because LibreOffice
+              was on this machine
+    compress  3,326 -> 3,326 bytes at
+              level 2: a tiny text file
+              has nothing to give; the
+              guide says so rather than
+              calling it a success
+
+What refusal looks like (t08, t10, t11)
+    OCR on a helper-less machine:
+        403 {"error":"Forbidden",
+             "message":"This endpoint is disabled"}
+    A text file sent to merge:
+        500 {"error":"Job failed:
+             java.io.IOException:
+             JPDFium merge failed"}
+    The login build without credentials:
+        401 {"error":"Authentication required"}
+    ...while /api/v1/info/status stayed
+    public on both builds.
+
+The dependency report (t14)
+    Startup logs ten missing helpers
+    (tesseract, ocrmypdf, Ghostscript,
+    qpdf, ImageMagick, unoconvert,
+    ebook-convert, weasyprint, rar,
+    OpenCV) and sixteen disabled
+    endpoints. Compress worked anyway —
+    the log itself warns that affected
+    endpoints "may have alternative
+    implementations." Trust the
+    attempt over the prediction.
+
+Configuration, proven (t12, t13, t15)
+    robots.txt defaults to Disallow: / ;
+    SYSTEM_GOOGLEVISIBILITY=true flipped
+    it to Allow: / on restart.
+    SERVER_PORT=8081 moved the server;
+    the status address confirmed both.
+
+Not done, and why
+    Docker: no runtime in the sandbox —
+    chapter 4 is the project's own
+    documentation, labelled as such.
+    OCR's success path: the helpers
+    could not be installed here.
+    Clicking through the UI: the page
+    was loaded and serves (t00); the
+    work was verified at the API, which
+    is the same engine the page calls.
+    Pipelines, desktop builds, SAML:
+    seen in files and docs, not run.

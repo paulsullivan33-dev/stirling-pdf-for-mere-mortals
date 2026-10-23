@@ -1,0 +1,29 @@
+site_name: Stirling PDF for Mere Mortals
+site_description: Plain-language self-hosted PDF work on your own machine. Merge, split, rotate, convert and rescue documents in a browser tab or from a script, with the files never leaving your network. Installing the jar, the everyday tools, the API, security habits and honest limits.
+site_url: https://paulsullivan33-dev.github.io/stirling-pdf-for-mere-mortals/
+
+# Guides live at the repo root (nice for GitHub browsing).
+# The deploy workflow copies them into docs/ before building.
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - What Stirling PDF Is: what-stirling-pdf-is.md
+  - How It Is Put Together: how-it-is-put-together.md
+  - Installing the Jar: installing-the-jar.md
+  - Installing with Docker: installing-with-docker.md
+  - First Run and the Home Page: first-run.md
+  - Everyday Jobs in the Browser: everyday-jobs.md
+  - Converting Files: converting-files.md
+  - Working with Scanned Pages: scanned-pages-and-ocr.md
+  - Scripting with the API: scripting-with-the-api.md
+  - Keeping It Private: keeping-it-private.md
+  - Settings and Customisation: settings-and-customisation.md
+  - Backing Up and Upgrading: backing-up-and-upgrading.md
+  - Recipes: recipes.md
+  - The Neighbours: the-neighbours.md
+  - Limits: limits.md
+  - Troubleshooting: troubleshooting.md
+  - Glossary: glossary.md
+  - Writing Criteria: criteria.md

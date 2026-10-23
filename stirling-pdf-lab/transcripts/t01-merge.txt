@@ -1,0 +1,7 @@
+$ curl -F fileInput=@newsletter-spring.pdf -F fileInput=@garden-minutes.pdf POST /api/v1/general/merge-pdfs
+HTTP/1.1 200 OK
+Content-Type: application/pdf
+Content-Disposition: form-data; name="attachment"; filename="newsletter-spring_merged_unsigned.pdf"
+merged pages: 5 (3 + 2 expected)
+page 1 first line: The Riverside Garden Club Newsletter
+page 5 first line: Minutes - actions agreed

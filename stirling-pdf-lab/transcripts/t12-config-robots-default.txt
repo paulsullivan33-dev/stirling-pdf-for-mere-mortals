@@ -1,0 +1,4 @@
+--- default (system.googlevisibility: false in settings.yml) ---
+$ curl -s http://localhost:8080/robots.txt
+User-agent: *
+Disallow: /

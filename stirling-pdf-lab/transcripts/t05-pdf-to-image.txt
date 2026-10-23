@@ -1,0 +1,5 @@
+$ curl -F fileInput=@garden-minutes.pdf -F pageNumbers=1 -F imageFormat=png -F singleOrMultiple=single POST /api/v1/convert/pdf/img
+HTTP/1.1 200 OK
+Content-Type: image/png
+Content-Disposition: form-data; name="attachment"; filename="garden-minutes.png"
+image format: PNG | size: (2480, 3507) | mode: RGBA

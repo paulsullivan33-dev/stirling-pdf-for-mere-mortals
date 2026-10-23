@@ -1,0 +1,7 @@
+$ curl -F fileInput=@newsletter-spring.pdf -F outputFormat=txt POST /api/v1/convert/pdf/text
+HTTP/1.1 200 OK
+Content-Type: text/plain
+Content-Disposition: form-data; name="attachment"; filename="newsletter-spring.txt"
+--- extracted text contains expected lines? ---
+occurrences of "Seed swap on Saturday": 1
+occurrences of "Soil testing kits available": 1

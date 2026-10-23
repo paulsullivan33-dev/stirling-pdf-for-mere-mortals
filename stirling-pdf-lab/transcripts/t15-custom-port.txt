@@ -1,0 +1,5 @@
+--- started with environment variable SERVER_PORT=8081 ---
+$ curl -s http://localhost:8081/api/v1/info/status
+{"version":"3.2.1","status":"UP"}
+$ curl -s http://localhost:8080/api/v1/info/status   (nothing on the old port)
+(connection refused - nothing on 8080)

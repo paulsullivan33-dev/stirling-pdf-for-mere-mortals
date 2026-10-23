@@ -1,0 +1,8 @@
+$ curl -F fileInput=@scanned-page.pdf -F languages=eng POST /api/v1/misc/ocr-pdf
+(input specimen: an image-only page; pypdf extracts no text from it at all)
+HTTP/1.1 403 Forbidden
+Content-Type: application/json
+invalid pdf header: b'{"tim'
+EOF marker not found
+output was not a readable PDF: PdfStreamError Stream has ended unexpectedly
+first bytes of the response body: b'{"timestamp":"2026-10-22T23:46:40.120Z","status":403,"error":"Forbidden","message":"This endpoint is disabled","path":"/api/v1/misc/ocr-pdf"}'

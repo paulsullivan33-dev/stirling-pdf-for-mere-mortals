@@ -1,0 +1,69 @@
+Stirling PDF commands — the cheat sheet
+====================================================================
+Run against Stirling PDF v3.2.1 by this
+guide's lab (transcripts in
+stirling-pdf-lab/transcripts/). The API
+calls are the same ones the web page
+makes; criteria.md keeps the ledger of
+what was run and what is documented.
+
+Standing it up (chapter 3)
+    java -version                  must say 25 or later
+    java -jar Stirling-PDF.jar
+    SERVER_PORT=8081 java -jar Stirling-PDF.jar
+                                   same, on port 8081 (t15)
+
+Is it alive? (chapters 3, 5)
+    curl http://localhost:8080/api/v1/info/status
+        -> {"version":"3.2.1","status":"UP"}
+    curl http://localhost:8080/robots.txt
+        -> Disallow: /   by default (t12)
+
+The everyday jobs (chapter 7; API forms
+in chapter 10)
+    POST /api/v1/general/merge-pdfs
+        -F fileInput=@a.pdf -F fileInput=@b.pdf
+        -> merged PDF (t01: 3 + 2 pages = 5)
+    POST /api/v1/general/split-pages
+        -F fileInput=@a.pdf -F pageNumbers=all
+        -> a zip of the pieces (t02)
+    POST /api/v1/general/rotate-pdf
+        -F fileInput=@a.pdf -F angle=90
+        -> PDF whose pages carry /Rotate 90 (t03)
+    POST /api/v1/misc/compress-pdf
+        -F fileInput=@a.pdf -F optimizeLevel=2
+        -> valid PDF; size gain not promised (t09)
+
+Conversions (chapter 8)
+    POST /api/v1/convert/pdf/text
+        -F fileInput=@a.pdf -F outputFormat=txt   (t04)
+    POST /api/v1/convert/pdf/img
+        -F fileInput=@a.pdf -F pageNumbers=1
+        -F imageFormat=png -F singleOrMultiple=single
+        -> a real PNG, 2480x3507 at the default 300 dpi (t05)
+    POST /api/v1/convert/img/pdf
+        -F fileInput=@photo.png                   (t06)
+    POST /api/v1/convert/file/pdf
+        -F fileInput=@flyer.docx
+        -> LibreOffice does this one (t07)
+
+OCR (chapter 9)
+    POST /api/v1/misc/ocr-pdf
+        -F fileInput=@scan.pdf -F languages=eng
+        -> 403 "This endpoint is disabled" until
+           tesseract and ocrmypdf are installed (t08)
+
+The server's own manual (chapter 10)
+    GET  /v1/api-docs        the OpenAPI document (148 paths)
+    GET  /swagger-ui         the same, browsable
+
+Configuration (chapter 12)
+    SYSTEM_GOOGLEVISIBILITY=true java -jar Stirling-PDF.jar
+        -> robots.txt flips to Allow: / (t13)
+    settings file: configs/settings.yml
+    overrides:     configs/custom_settings.yml
+
+Checking results the lab's way (pypdf)
+    pages:   len(PdfReader(f).pages)
+    rotate:  page.get("/Rotate")
+    words:   page.extract_text()

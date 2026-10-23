@@ -1,0 +1,4 @@
+--- restarted with environment variable SYSTEM_GOOGLEVISIBILITY=true ---
+$ curl -s http://localhost:8080/robots.txt
+User-agent: *
+Allow: /

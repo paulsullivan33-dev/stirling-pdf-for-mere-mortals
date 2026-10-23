@@ -1,0 +1,13 @@
+--- from the server log of the first plain-jar run (only LibreOffice present on this machine) ---
+23:44:20.259 [main] INFO  s.s.c.c.RuntimePathConfig - Using Tesseract data path: /usr/share/tesseract-ocr/5/tessdata
+23:44:20.496 [virtual-34] WARN  s.s.SPDF.config.ExternalAppDepConfig - Missing dependency: tesseract - Disabling group: tesseract (Affected features: Ocr PDF, Auto Rotate PDF)
+23:44:20.496 [virtual-32] WARN  s.s.SPDF.config.ExternalAppDepConfig - Missing dependency: rar - Disabling group: rar (Affected features: PDF To Cbr)
+23:44:20.502 [virtual-36] WARN  s.s.SPDF.config.ExternalAppDepConfig - Missing dependency: ocrmypdf - Disabling group: OCRmyPDF (Affected features: Ocr PDF)
+23:44:20.507 [virtual-37] WARN  s.s.SPDF.config.ExternalAppDepConfig - Missing dependency: qpdf - Disabling group: qpdf (Affected features: Repair, Compress PDF)
+23:44:20.509 [virtual-40] WARN  s.s.SPDF.config.ExternalAppDepConfig - Missing dependency: magick - Disabling group: ImageMagick (Affected features: Compress PDF)
+23:44:20.513 [virtual-41] WARN  s.s.SPDF.config.ExternalAppDepConfig - Missing dependency: gs - Disabling group: Ghostscript (Affected features: Replace Invert PDF, Repair, Compress PDF, Scanner Effect, Vector To PDF, PDF To Vector, Crop)
+23:44:20.516 [virtual-43] WARN  s.s.SPDF.config.ExternalAppDepConfig - Missing dependency: unoconvert - Disabling group: Unoconvert (Affected features: File To PDF)
+23:44:20.543 [virtual-44] WARN  s.s.SPDF.config.ExternalAppDepConfig - Missing dependency: ebook-convert - Disabling group: Calibre (Affected features: PDF To Epub)
+23:44:20.546 [virtual-38] WARN  s.s.SPDF.config.ExternalAppDepConfig - Missing dependency: weasyprint - Disabling group: Weasyprint (Affected features: Eml To PDF, Markdown To PDF, Url To PDF, Html To PDF)
+23:44:20.589 [main] INFO  s.s.S.config.EndpointConfiguration - Disabled tool groups: Calibre, Ghostscript, ImageMagick, OCRmyPDF, OpenCV, Unoconvert, Weasyprint, qpdf, rar, tesseract (endpoints may have alternative implementations)
+23:44:20.591 [main] INFO  s.s.S.config.EndpointConfiguration - Total disabled endpoints: 16. Disabled endpoints: accessibility-report, auto-rotate-pdf, eml-to-pdf, extract-image-scans, form-detection, html-to-pdf, ocr-pdf, pdf-to-cbr, pdf-to-epub, pdf-to-ua, pdf-to-vector, repair, replace-invert-pdf, scanner-effect, url-to-pdf, vector-to-pdf

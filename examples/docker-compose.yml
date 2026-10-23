@@ -1,0 +1,27 @@
+# Stirling PDF with Docker — as documented by the project.
+# NOT run by this guide's lab (the build sandbox has no Docker);
+# chapter 4 explains each line and its status.
+services:
+  stirling-pdf:
+    image: docker.stirlingpdf.com/stirlingtools/stirling-pdf:3.2.1
+    container_name: stirling-pdf
+    ports:
+      - "8080:8080"
+    volumes:
+      # OCR language data (chapter 9)
+      - ./data/tessdata:/usr/share/tessdata
+      # Settings, the account database, and the
+      # credential-encryption.key — back this up (chapter 13)
+      - ./data/configs:/configs
+      - ./data/customFiles:/customFiles
+      - ./data/logs:/logs
+      - ./data/pipeline:/pipeline
+    environment:
+      - SECURITY_ENABLELOGIN=true
+      # First admin, seeded on first boot only (chapter 4).
+      # Invent your own, then remove these two lines.
+      # - SECURITY_INITIALLOGIN_USERNAME=admin
+      # - SECURITY_INITIALLOGIN_PASSWORD=<redacted>
+      - SYSTEM_DEFAULTLOCALE=en-US
+      - LANGS=en_GB,en_US
+    restart: unless-stopped

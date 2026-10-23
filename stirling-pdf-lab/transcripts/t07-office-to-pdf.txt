@@ -1,0 +1,7 @@
+$ curl -F fileInput=@picnic-flyer.docx POST /api/v1/convert/file/pdf   (LibreOffice does the work underneath)
+HTTP/1.1 200 OK
+Content-Type: application/pdf
+Content-Disposition: form-data; name="attachment"; filename="picnic-flyer_convertedToPDF.pdf"
+flyer pdf pages: 1
+text mentions the picnic: True
+text mentions the dish: True

@@ -1,0 +1,9 @@
+$ curl -F fileInput=@newsletter-spring.pdf -F pageNumbers=all POST /api/v1/general/split-pages
+HTTP/1.1 200 OK
+Content-Type: application/octet-stream
+Content-Disposition: form-data; name="attachment"; filename="newsletter-spring_split.zip"
+zip entries: ['newsletter-spring_1.pdf', 'newsletter-spring_2.pdf', 'newsletter-spring_3.pdf']
+  newsletter-spring_1.pdf: 1 page(s), footer: Spring newsletter - page 1 of 3
+  newsletter-spring_2.pdf: 1 page(s), footer: Spring newsletter - page 2 of 3
+  newsletter-spring_3.pdf: 1 page(s), footer: Spring newsletter - page 3 of 3
+total pages across parts: 3 (3 expected)

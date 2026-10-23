@@ -1,0 +1,9 @@
+$ curl -F fileInput=@garden-minutes.pdf -F angle=90 POST /api/v1/general/rotate-pdf
+HTTP/1.1 200 OK
+Content-Type: application/pdf
+Content-Disposition: form-data; name="attachment"; filename="garden-minutes_rotated.pdf"
+rotated pages: 2 (2 expected)
+  page 1: /Rotate = 90 (90 expected)
+  page 1: mediabox 595 x 842
+  page 2: /Rotate = 90 (90 expected)
+  page 2: mediabox 595 x 842

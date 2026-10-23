@@ -1,0 +1,5 @@
+$ curl -F fileInput=@newsletter-spring.pdf -F optimizeLevel=2 POST /api/v1/misc/compress-pdf
+input bytes:  3326
+output bytes: 3326
+compressed pages: 3 (3 expected)
+page 1 title intact: True

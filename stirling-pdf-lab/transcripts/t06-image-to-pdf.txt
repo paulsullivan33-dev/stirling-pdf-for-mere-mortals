@@ -1,0 +1,7 @@
+$ curl -F fileInput=@photo-walk.png POST /api/v1/convert/img/pdf
+HTTP/1.1 200 OK
+Content-Type: application/pdf
+Content-Disposition: form-data; name="attachment"; filename="photo-walk_converted.pdf"
+photo pdf pages: 1 (1 expected)
+page size: 595 x 842 pt
+page embeds an image XObject: True

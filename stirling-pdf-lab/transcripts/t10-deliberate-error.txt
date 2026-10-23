@@ -1,0 +1,5 @@
+$ curl -F fileInput=@notes.txt POST /api/v1/general/merge-pdfs   (a text file, not a PDF - deliberate mistake)
+--- response status line and body ---
+{"error":"Job failed: java.io.IOException: JPDFium merge failed"}
+HTTP 500
+
