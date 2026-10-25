@@ -160,3 +160,19 @@ live in `stirling-pdf-lab/transcripts/`;
 its notes are `examples/lab-notes.txt`,
 and `criteria.md` keeps the ledger of
 what was run and what was only read.
+
+---
+
+## Part of the series
+
+This guide is one of the [For Mere Mortals](https://paulsullivan33-dev.github.io/mere-mortals/) guides: plain-language guides to the tools programmers and makers use.
+
+Related guides:
+
+- [Pandoc for Mere Mortals](https://paulsullivan33-dev.github.io/pandoc-for-mere-mortals/)
+- [LibreOffice for Mere Mortals](https://paulsullivan33-dev.github.io/libreoffice-for-mere-mortals/)
+- [Docker Compose for Mere Mortals](https://paulsullivan33-dev.github.io/docker-compose-for-mere-mortals/)
+
+## License
+
+The writing in this guide is licensed under [CC BY 4.0](https://github.com/paulsullivan33-dev/stirling-pdf-for-mere-mortals/blob/main/LICENSE). Code examples and lab scripts are licensed under the [MIT License](https://github.com/paulsullivan33-dev/stirling-pdf-for-mere-mortals/blob/main/LICENSE-CODE).

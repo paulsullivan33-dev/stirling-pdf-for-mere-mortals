@@ -1,6 +1,7 @@
 site_name: Stirling PDF for Mere Mortals
 site_description: Plain-language self-hosted PDF work on your own machine. Merge, split, rotate, convert and rescue documents in a browser tab or from a script, with the files never leaving your network. Installing the jar, the everyday tools, the API, security habits and honest limits.
 site_url: https://paulsullivan33-dev.github.io/stirling-pdf-for-mere-mortals/
+copyright: 'Part of <a href="https://paulsullivan33-dev.github.io/mere-mortals/">For Mere Mortals</a> · Text <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, code MIT'
 
 # Guides live at the repo root (nice for GitHub browsing).
 # The deploy workflow copies them into docs/ before building.
